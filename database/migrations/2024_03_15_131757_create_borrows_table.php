@@ -16,15 +16,14 @@ return new class extends Migration
         Schema::create('borrows', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('officer_name');
             $table->integer('total');
             $table->date('start_date');
             $table->date('back_date');
-            $table->unsignedBigInteger('members_id');
-            $table->foreign('members_id')->references('id')->on('members');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->unsignedBigInteger('books_id'); 
             $table->foreign('books_id')->references('id')->on('books');
-            $table->unsignedBigInteger('officers_id'); 
-            $table->foreign('officers_id')->references('id')->on('officers');
         });
     }
 
