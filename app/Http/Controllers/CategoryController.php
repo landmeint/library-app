@@ -8,7 +8,7 @@ class CategoryController extends Controller
 {
     public function index() {
         $category = DB::table('category') -> get();
-        return view('category.index', ['category' => $book]);
+        return view('category.index', ['category' => $category]);
     }
 
     public function create() {
