@@ -49,34 +49,36 @@
 @section('body-content')
   <!-- borrow section -->
 
-  <section class="about_section layout_padding">
-    <div class="row">
-      <div class="col-md-5 offset-md-1">
-        <div class="img-box">
-          <img src="images/about.png" alt="" />
-          <div class="play_btn-box">
-            <div class="play-btn"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="detail-box">
-          <h3>
-            About Us
-          </h3>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The
-            point of using LoremIt is a long established fact that a reader
-            will be distracted by the readable content of a page when looking
-            at its layout. The point of using LoremIt is a long established
-            fact that a reader will be distracted by the readable content of a
-            page when looking at its layout. The point of using Lorem
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <table class="table table-bordered" style="margin: 40px 25px 70px 0px">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+    </tbody>
+  </table>
 
   <!-- end about section -->
 @endsection
