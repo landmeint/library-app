@@ -20,10 +20,10 @@ return new class extends Migration
             $table->integer('total');
             $table->date('start_date');
             $table->date('back_date');
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->unsignedBigInteger('books_id'); 
-            $table->foreign('books_id')->references('id')->on('books');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('book_id'); 
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 

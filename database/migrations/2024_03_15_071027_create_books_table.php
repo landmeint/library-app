@@ -20,9 +20,9 @@ return new class extends Migration
             $table->string('writer');
             $table->string('publisher');
             $table->date('publication');
-            $table->integer('status');
-            $table->unsignedBigInteger('categories_id');
-            $table->foreign('categories_id')->references('id')->on('categories');
+            $table->integer('stock');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             
         });
     }
