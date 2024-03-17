@@ -57,12 +57,12 @@
   
       <div class="row justify-content-center ">
         <div class="col-md-8">
-          <form class="needs-validation" action="{{ route('category_update', ['id' => $book->id]) }}" novalidate method="POST" >
+          <form action="{{ Route('category_update', ['id' => $categories->id]) }}" method="POST" >
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="penerbit_buku">Penerbit</label>
-                <input type="text" name="publisher" class="form-control" id="penerbit_buku" placeholder="Masukkan Nama Penerbit Buku" value="{{$category->name}}">
+                <label for="category">Kategori</label>
+                <input type="text" name="name" class="form-control" id="category" placeholder="Masukkan Nama Penerbit Buku" value="{{$categories->name}}">
                 <div class="invalid-feedback">
                     Tolong Masukkan Kategori Buku
                 </div>
