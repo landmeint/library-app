@@ -50,325 +50,44 @@
 @section('body-content')
   <!-- borrow section -->
 
-  <div class="container">
-    <main role="main" class="">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Peminjaman Buku</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group mr-2">
-            <a href="{{ url('borrow/create') }}" class="btn btn-sm btn-outline-secondary" role="button">Tambah Peminjaman</a>
-          </div>
-        </div>
-      </div>
+  @if (Auth::user()->level == 1)
 
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Petugas</th>
-              <th>Jumlah Buku</th>
-              <th>Tanggal Pinjam</th>
-              <th>Tanggal Kembali</th>
-              <th>Peminjam</th>
-              <th>Judul Buku</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,003</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,004</td>
-              <td>text</td>
-              <td>random</td>
-              <td>layout</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,005</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,006</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,007</td>
-              <td>placeholder</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,008</td>
-              <td>random</td>
-              <td>text</td>
-              <td>placeholder</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,009</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,010</td>
-              <td>data</td>
-              <td>rich</td>
-              <td>dashboard</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,011</td>
-              <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,012</td>
-              <td>text</td>
-              <td>placeholder</td>
-              <td>layout</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,013</td>
-              <td>dashboard</td>
-              <td>irrelevant</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,014</td>
-              <td>dashboard</td>
-              <td>illustrative</td>
-              <td>rich</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>1,015</td>
-              <td>random</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>text</td>
-              <td>text</td>
-              <td>text</td>
-              <td>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                  <div class="btn-group mr-2">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Tampil</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Hapus</button>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
-  </div>
+  <a class="btn btn-primary" href="{{route('borrow_create')}}" role="button">Add Cast</a>
+  @endif
+
+
+<table class="table" style="margin: 30px 20px 50px 30px">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Total</th>
+      <th scope="col">Book</th>
+      <th scope="col">Start_date</th>
+      <th scope="col">Back_date</th>
+      <th scope="col"></th>
+  </thead>
+  <tbody>
+    @foreach ($borrows as $item)
+    <tr>
+        <th scope="row">{{$loop->index +1 }}</th>
+        <td>{{$item->total}}</td>
+        <td>{{$item->book_id}}</td>
+        <td>{{$item->start_date}}</td>
+        <td>{{$item->back_date}}</td>
+        <td>
+            <form action="/borrow/{{$item->id}}" method="POST">
+                @csrf
+                <a class="btn btn-primary" href="{{ route('borrow_edit', ['id' => $item->id]) }}" role="button">Edit</a>
+                @method('DELETE')
+                <button class="btn btn-primary" type="submit">Delete</button>
+            </form>
+        </td>
+      
+    </tr>
+    @endforeach
+  
+  </tbody>
+</table>
 
   <!-- end about section -->
 @endsection

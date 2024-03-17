@@ -37,6 +37,11 @@ Route::get('about', [HomeController::class,'about'])->middleware('auth')->name('
 
 Route::get('borrow', [BorrowController::class,'index'])->middleware('auth')->name('borrow');
 Route::get('borrow/create', [BorrowController::class,'create'])->middleware('auth')->name('borrow_create');
+Route::post('borrow/create', [BorrowController::class,'store'])->middleware('auth')->name('borrow_store');
+Route::get('borrow/{id}/edit', [BorrowController::class,'edit'])->middleware('auth')->name('borrow_edit');
+Route::put('borrow/edit/{id}', [BorrowController::class,'update'])->middleware('auth')->name('borrow_update');
+Route::delete('/borrow/{id}', [BorrowController::class, 'destroy'])->name('borrow.destroy');
+
 
 Route::get('book', [BookController::class,'index'])->middleware('auth')->name('book');
 
