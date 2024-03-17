@@ -4,6 +4,8 @@ KELOMPOK 7
 
 ANGGOTA KELOMPOK
 M YASIR RIZQI
+Abdullah Zakaria
+Taruna Makky Satya Nugraha
 
 TEMA PROJECT
 PERPUSTAKAAN
