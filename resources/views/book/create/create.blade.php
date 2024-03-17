@@ -57,7 +57,7 @@
   
       <div class="row justify-content-center ">
         <div class="col-md-8">
-          <form action="/posts" class="needs-validation" action="{{Route('book_store')}}" novalidate method="POST" >
+          <form action="{{ Route('book_store') }}" class="needs-validation"  method="POST" >
             @csrf
             <div class="mb-3">
               <label for="judul_buku">Judul Buku</label>
@@ -101,7 +101,12 @@
 
             <div class="mb-3">
               <label for="category">Kategori</label>
-              <input type="number" name="categories_id" class="form-control" id="category" placeholder="Masukkan Kategori">
+              <select id="category" class="form-control" name="category_id">
+                <option selected>Pilih...</option>
+                @foreach ($category as $ct)
+                  <option value="{{ $ct->id }}">{{ $ct->name }}</option>
+                @endforeach
+              </select>
               <div class="invalid-feedback">
                 Tolong Masukkan Kategori Buku
               </div>

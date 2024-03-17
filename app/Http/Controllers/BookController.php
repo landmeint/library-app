@@ -6,30 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
     public function index() {
-        $book = Book::all();
-        return view('book.index', ['books' => $book]);
+
+        return view('book.index', [
+            'books' => Book::all()
+        ]);
     }
 
     public function create()
     {
-        $book = Book::get();
-        return view('book.create.create', ['books' => $book]);
+      
+        return view('book.create.create', ['category' => Category::all()]);
     }
  
     public function store(Request $request)
     {
-    	$this->validate($request,[
-    		'title' => 'required',
+    	$request->validate([
+            'title' => 'required',
             'writer' => 'required',
             'publisher' => 'required',
             'publication' => 'required',
             'stock' => 'required',
             'category_id' => 'required'
-    	]);
+        ]);
  
         Book::create([
     		'title' => $request['title'],
@@ -40,19 +43,22 @@ class BookController extends Controller
             'category_id' => $request['category_id']
     	]);
  
-    	return redirect('/book');
+    	return redirect('book');
     }
 
     public function edit($id)
     {
-        $book = Book::find($id);
-        return view('book.edit', ['books' => $book]);
+        $book = DB::table('books')->where('id', $id)->first();
+        return view('book.edit', [
+            'books' => $book,
+            'category' => Category::all()
+        ]);
     }
 
     public function update($id, Request $request)
     {
         $request->validate([
-            'title' => 'required|unique:post',
+            'title' => 'required',
             'writer' => 'required',
             'publisher' => 'required',
             'publication' => 'required',
@@ -68,7 +74,7 @@ class BookController extends Controller
         $book-> stock = $request['stock'];
         $book-> category_id = $request['category_id'];
         $book-> update();
-        return redirect('/book');
+        return redirect('book');
     }
 
     public function destroy($id)

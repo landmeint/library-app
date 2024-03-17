@@ -57,12 +57,12 @@
   
       <div class="row justify-content-center ">
         <div class="col-md-8">
-          <form class="needs-validation" action="{{ route('book_update', ['id' => $book->id]) }}" novalidate method="POST" >
+          <form action="{{ Route('book_update', ['id' => $books->id]) }}"  method="POST" >
             @csrf
             @method('PUT')
             <div class="mb-3">
                 <label for="judul_buku">Judul Buku</label>
-                <input type="text" name="title" class="form-control" id="judul_buku" placeholder="Masukkan Judul Buku" value="{{$book->title}}">
+                <input type="text" name="title" class="form-control" id="judul_buku" placeholder="Masukkan Judul Buku" value="{{$books->title}}">
                 <div class="invalid-feedback">
                   Tolong Masukkan Judul Buku
                 </div>
@@ -70,7 +70,7 @@
 
             <div class="mb-3">
                 <label for="penulis_buku">Penulis</label>
-                <input type="text" name="writer" class="form-control" id="penulis_buku" placeholder="Masukkan Nama Penulis Buku" value="{{$book->writer}}">
+                <input type="text" name="writer" class="form-control" id="penulis_buku" placeholder="Masukkan Nama Penulis Buku" value="{{$books->writer}}">
                 <div class="invalid-feedback">
                   Tolong Masukkan Penulis Buku
                 </div>
@@ -78,7 +78,7 @@
 
             <div class="mb-3">
                 <label for="penerbit_buku">Penerbit</label>
-                <input type="text" name="publisher" class="form-control" id="penerbit_buku" placeholder="Masukkan Nama Penerbit Buku" value="{{$book->publisher}}">
+                <input type="text" name="publisher" class="form-control" id="penerbit_buku" placeholder="Masukkan Nama Penerbit Buku" value="{{$books->publisher}}">
                 <div class="invalid-feedback">
                   Tolong Masukkan Penerbit Buku
                 </div>
@@ -86,7 +86,7 @@
 
             <div class="mb-3">
               <label for="date">Tanggal Terbit</label>
-              <input type="date" name="publication" value="{{$book->publication}}" class="form-control" id="date">
+              <input type="date" name="publication" value="{{$books->publication}}" class="form-control" id="date">
               <div class="invalid-feedback">
                 Tolong Cantumkan Tanggal Terbit
               </div>
@@ -94,7 +94,7 @@
     
             <div class="mb-3">
                 <label for="jumlah_stok">Jumlah Stok yang Ada</label>
-                <input type="number" name="stock" class="form-control" id="jumlah_stok" placeholder="Masukkan Jumlah Stok" value="{{$book->stock}}">
+                <input type="number" name="stock" class="form-control" id="jumlah_stok" placeholder="Masukkan Jumlah Stok" value="{{$books->stock}}">
                 <div class="invalid-feedback">
                   Tolong Masukkan Jumlah Stok Buku yang tersedia dalam inventori
                 </div>
@@ -102,7 +102,14 @@
   
             <div class="mb-3">
               <label for="ctaegory">Kategori</label>
-              <input type="number" value="{{$book->category_id}}" name="category_id" class="form-control" >
+              <label for="category">Kategori</label>
+              <select id="category" class="form-control" name="category_id">
+                @foreach ($category as $ct)
+                  <option value="{{ $ct->id }}" @if ($ct->id == $books->category_id)
+                    selected
+                  @endif>{{ $ct->name }}</option>
+                @endforeach
+              </select>
                 <div class="invalid-feedback">
                   Pilih buku
                 </div>

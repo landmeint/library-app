@@ -48,10 +48,10 @@
 
 @section('body-content')
   <!-- book section -->
-
+<div class="container mt-3 mb-3">
   @if (Auth::user()->level == 1)
 
-  <a class="btn btn-primary" href="{{route('book_create')}}" role="button">Add New Book Titles</a>
+  <a class="btn btn-primary" href="{{route('book_create')}}" role="button">Tambahkan Buku</a>
   @endif
 
 
@@ -65,6 +65,7 @@
       <th scope="col">Tanggal Terbit</th>
       <th scope="col">Stok</th>
       <th scope="col">Kategori</th>
+      <th scope="col">Action</th>
   </thead>
   <tbody>
     @foreach ($books as $item)
@@ -75,7 +76,7 @@
         <td>{{$item->publisher}}</td>
         <td>{{$item->publication}}</td>
         <td>{{$item->stock}}</td>
-        <td>{{$item->category_id}}</td>
+        <td>{{$item->category->name}}</td>
         <td>
             <form action="/book/{{$item->id}}" method="POST">
                 @csrf
@@ -90,7 +91,7 @@
   
   </tbody>
 </table>
-
+</div>
   <!-- end about section -->
 @endsection
 

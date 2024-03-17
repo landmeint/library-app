@@ -49,6 +49,7 @@
 @section('body-content')
   <!-- category section -->
 
+<div class="container mt-3 mb-3">
   @if (Auth::user()->level == 1)
 
   <a class="btn btn-primary" href="{{route('category_create')}}" role="button">Add New Category</a>
@@ -60,6 +61,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Kategori Buku</th>
+      <th scope="col">Action</th>
   </thead>
   <tbody>
     @foreach ($categories as $item)
@@ -80,7 +82,7 @@
   
   </tbody>
 </table>
-
+</div>
   <!-- end category section -->
 @endsection
 
