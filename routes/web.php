@@ -42,7 +42,16 @@ Route::get('borrow/{id}/edit', [BorrowController::class,'edit'])->middleware('au
 Route::put('borrow/edit/{id}', [BorrowController::class,'update'])->middleware('auth')->name('borrow_update');
 Route::delete('/borrow/{id}', [BorrowController::class, 'destroy'])->name('borrow.destroy');
 
-
 Route::get('book', [BookController::class,'index'])->middleware('auth')->name('book');
+Route::get('book/create', [BookController::class,'create'])->middleware('auth')->name('book_create');
+Route::post('book/create', [BookController::class,'store'])->middleware('auth')->name('book_store');
+Route::get('book/{id}/edit', [BookController::class,'edit'])->middleware('auth')->name('book_edit');
+Route::put('book/edit/{id}', [BookController::class,'update'])->middleware('auth')->name('book_update');
+Route::delete('/book/{id}', [BookController::class, 'destroy'])->name('book.destroy');
 
 Route::get('category', [CategoryController::class,'index'])->middleware('auth')->name('category');
+Route::get('category/create', [CategoryController::class,'create'])->middleware('auth')->name('category_create');
+Route::post('category/create', [CategoryController::class,'store'])->middleware('auth')->name('category_store');
+Route::get('category/{id}/edit', [CategoryController::class,'edit'])->middleware('auth')->name('category_edit');
+Route::put('category/edit/{id}', [CategoryController::class,'update'])->middleware('auth')->name('category_update');
+Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');

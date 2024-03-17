@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('body-content')
+@section('head-content')
 <body class="sub_page">
   <div class="hero_area">
     <!-- header section strats -->
@@ -45,51 +45,35 @@
     </header>
     <!-- end header section -->
   </div>
+@endsection
 
 @section('body-content')
-  <!-- book section -->
+  <!-- borrow section -->
 
-  @if (Auth::user()->level == 1)
-
-  <a class="btn btn-primary" href="{{route('book_create')}}" role="button">Add New Book Titles</a>
-  @endif
-
-
-<table class="table" style="margin: 30px 20px 50px 30px">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Judul</th>
-      <th scope="col">Penulis</th>
-      <th scope="col">Penerbit</th>
-      <th scope="col">Tanggal Terbit</th>
-      <th scope="col">Stok</th>
-      <th scope="col">Kategori</th>
-  </thead>
-  <tbody>
-    @foreach ($books as $item)
-    <tr>
-        <th scope="row">{{$loop->index +1 }}</th>
-        <td>{{$item->title}}</td>
-        <td>{{$item->writer}}</td>
-        <td>{{$item->publisher}}</td>
-        <td>{{$item->publication}}</td>
-        <td>{{$item->stock}}</td>
-        <td>{{$item->category_id}}</td>
-        <td>
-            <form action="/book/{{$item->id}}" method="POST">
-                @csrf
-                <a class="btn btn-primary" href="{{ route('book_edit', ['id' => $item->id]) }}" role="button">Edit</a>
-                @method('DELETE')
-                <button class="btn btn-primary" type="submit">Delete</button>
-            </form>
-        </td>
-      
-    </tr>
-    @endforeach
+  <div class="container">
+    <div class="py-5 text-center">
+      <h2>Tambah Kategori Buku</h2>
+    </div>
   
-  </tbody>
-</table>
+      <div class="row justify-content-center ">
+        <div class="col-md-8">
+          <form class="needs-validation" action="{{Route('category_store')}}" novalidate method="POST" >
+            @csrf
+            <div class="mb-3">
+              <label for="nama_kategori">Nama Kategori</label>
+              <input type="text" name="name" class="form-control" id="nama_kategori" placeholder="Masukkan Kategori Buku">
+              <div class="invalid-feedback">
+                Tolong Masukkan Kategori Buku
+              </div>
+            </div>
+     
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Simpan</button>
+          </form>
+        </div>
+        
+      </div>
+  </div>
 
   <!-- end about section -->
 @endsection

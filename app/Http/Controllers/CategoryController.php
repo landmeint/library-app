@@ -3,38 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
- 
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     public function index() {
-        $category = DB::table('category') -> get();
-        return view('category.index', ['category' => $category]);
+        $category = Category::all();
+        return view('category.index', ['categories' => $category]);
     }
 
     public function create() {
-        return view('category.create');
+        return view('category.create.create');
     }
 
     public function store(Request $request) {
-        $request -> validate([
-            'name' => 'required'
-        ]);
-
-        DB::table('category')->insert([
-            'name' => $request['name']
+        $officer = Auth::user();
+        $category = Category::create([
+            'name' => $request->name
         ]);
         return redirect('/category');
     }
 
-    public function show($id) {
-        $category = DB::table('category') -> where('id', $id) -> first();
-        return view('category.detail', ['category' => $category]);
-    }
-
     public function edit($id) {
-        $category = DB::table('category') -> find($id);
-        return view('category.edit', ['category' => $category]);
+        $category = Category::find($id);
+        return view('category.edit', ['categories' => $category]);
     }
 
     public function update($id, Request $request) {
@@ -42,14 +35,15 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
 
-        DB::table('category')-> where('id', $id) -> update([
-            'name' => $request['name']
-        ]);
+        $category = Category::find($id);
+        $category -> name = $request['name'];
+        $category -> update();
         return redirect('/category');
     }
 
     public function destroy($id) {
-        DB::table('category') -> where('id', $id) -> delete();
+        $category = Category::find($id);
+        $category -> delete();
         return redirect('/category');
     }
 }
