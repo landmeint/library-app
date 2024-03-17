@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -39,6 +40,33 @@ class LoginController extends Controller
         return back()->withErrors([
             'username' => 'Maaf username / password salah'
         ])->onlyInput('username');
+    }
+
+    public function regispage() {
+       
+        return view('login.register');
+    }
+
+    public function register(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'username' => 'required',
+            'password' => 'required',
+            'level' => 'required',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'level' => $request->level,
+        ];
+
+        User::create($data);
+
+        return redirect('login');
     }
 
     public function logout(Request $request) {

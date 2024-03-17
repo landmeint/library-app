@@ -52,7 +52,7 @@
             </div>
             <div class="detail-box">
               <p>
-                Lorem Ipsum is simply dummy text
+                Sanbercode Camp
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@
             </div>
             <div class="detail-box">
               <p>
-                demo@gmail.com
+                team7@sanber.com
               </p>
             </div>
           </div>
@@ -128,6 +128,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   <script src="js/dashboard.js"></script>
 
+  @yield('js')
   <script>
     function openNav() {
       document.getElementById("myNav").classList.toggle("menu_width");

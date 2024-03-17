@@ -64,17 +64,12 @@
                       <span>FAVORITMU</span>
                     </h1>
                     <div>
-                      <form action="">
-                        <input type="text" placeholder="Masukkan Judul Buku" />
+                      <form>
+                        <input type="text" placeholder="Masukkan Judul Buku" id="search" name="search" class="form-cotrol"/>
                         <button type="submit">
                           Cari
                         </button>
                       </form>
-                    </div>
-                    <div>
-                      <a href="">
-                        Read More
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -121,34 +116,24 @@
 @section('body-content')
   <!-- about section -->
 
-  <section class="about_section layout_padding">
-    <div class="row">
-      <div class="col-md-5 offset-md-1">
-        <div class="img-box">
-          <img src="images/about.png" alt="" />
-          <div class="play_btn-box">
-            <div class="play-btn"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="detail-box">
-          <h3>
-            About Us
-          </h3>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The
-            point of using LoremIt is a long established fact that a reader
-            will be distracted by the readable content of a page when looking
-            at its layout. The point of using LoremIt is a long established
-            fact that a reader will be distracted by the readable content of a
-            page when looking at its layout. The point of using Lorem
-          </p>
-        </div>
-      </div>
+  <div class="container mt-3">
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>Judul Buku</th>
+            <th>Penulis</th>
+            <th>Penerbit</th>
+            <th>Tanggal Terbit</th>
+            <th>jumlah</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
 
   <!-- end about section -->
 
@@ -157,73 +142,58 @@
   <section class="business_section layout_padding">
     <div class="container">
       <h2>
-        Gets your business discovered
+        Rekomendasi Buku Bulan Ini
       </h2>
       <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters,
+        Ada beberapa buku yang menjadi favorit para pembaca di perpustakaan kami, terdiri dari beberapa macam kategori, kami akan menampilkan 3 buku rekomendasi dari perpustakaan kami.
       </p>
     </div>
     <div class="business_container">
       <div class="content-box box-1">
         <div class="detail">
           <h3>
-            Not just a website
+            Laut Bercerita
           </h3>
           <p>
-            It is a long established fact that a r <br />
-            eader will be distracted by the readable content <br />
-            of a page when looking at i <br />
-            ts layout. The point of usin <br />
-            g Lorem Ipsum is that it has a more-or-less normal <br />
-            distribution of letters,
+            Laut Bercerita bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur. <br/>
+            -Leila S. Chudori
           </p>
         </div>
         <div>
           <a href="">
-            read More
+            Pinjam Sekarang
           </a>
         </div>
       </div>
       <div class="content-box box-2">
         <div class="detail">
           <h3>
-            Hosting & maintenance included
+            Hello, Habits
           </h3>
           <p>
-            It is a long established fact that a r <br />
-            eader will be distracted by the readable content <br />
-            of a page when looking at i <br />
-            ts layout. The point of usin <br />
-            g Lorem Ipsum is that it has a more-or-less normal <br />
-            distribution of letters,
+            Hello, Habits adalah salah satu buku yang cocok dibaca oleh siapa saja yang ingin meningkatkan kualitas hidupnya dengan cara menciptakan kebiasaan-kebiasaan yang lebih baik. Akan selalu ada kesempatan untuk mencoba berbagai hal baru dan tidak pernah ada kata terlambat untuk meninggalkan kebiasaan buruk, kemudian membangun kebiasaan baru dalam keseharian kita. <br />
+            - Fumio Sakaki
           </p>
         </div>
         <div>
           <a href="">
-            read More
+            Pinjam Sekarang
           </a>
         </div>
       </div>
       <div class="content-box box-3">
         <div class="detail">
           <h3>
-            Connect with your customers
+            The Midnight Library
           </h3>
           <p>
-            It is a long established fact that a r <br />
-            eader will be distracted by the readable content <br />
-            of a page when looking at i <br />
-            ts layout. The point of usin <br />
-            g Lorem Ipsum is that it has a more-or-less normal <br />
-            distribution of letters,
+            Dengan membaca buku berjudul The Midnight Library, kamu akan mendapatkan pengalaman yang sangat berkesan. Melalui buku ini, kamu akan mengikut kisah Nora dan diajak untuk kembali merenungkan kehidupan kita sendiri. Ada kesedihan dan ada juga penyesalan yang akan ikut kita rasakan. Banyak sekali momen pengalaman Nora yang bisa membuat pembaca melakukan refleksi diri. Kemudian, ada kehangatan hati yang mengalir di dalam diri ketika membaca akhir dari kisah di novel ini. <br />
+            - Matt Haig
           </p>
         </div>
         <div>
           <a href="">
-            read More
+            Pinjam Sekarang
           </a>
         </div>
       </div>
@@ -238,11 +208,11 @@
     <div class="container">
       <div class="box">
         <h2>
-          We promote your business. <br />
-          we set up everything for you.
+          Kami mendukung agar indonesia maju. <br />
+          dengan di galangkannya.
         </h2>
         <h2 class="make-heading">
-          We make it easy.
+          Gerakan Nasional Gemar Membaca.
         </h2>
       </div>
     </div>
@@ -307,7 +277,7 @@
     <div class="container">
       <div class="d-flex justify-content-center">
         <h2>
-          Testimonial
+          Team 7
         </h2>
       </div>
       <div id="carouselExample2Indicators" class="carousel slide" data-ride="carousel">
@@ -327,12 +297,10 @@
                         <img src="images/client-1.jpg" />
                       </div>
                       <h5>
-                        zabih jo
+                        Yasir Rizqi
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        Sofware Engineer on Microsoft Corp , @rizqiyasir
                       </p>
                     </div>
                   </div>
@@ -344,12 +312,10 @@
                         <img src="images/client-2.jpg" />
                       </div>
                       <h5>
-                        zabih jo
+                        Abdullah Zakaria
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        Backend Developer on Meint Corp, @abzariy
                       </p>
                     </div>
                   </div>
@@ -367,12 +333,10 @@
                         <img src="images/client-1.jpg" />
                       </div>
                       <h5>
-                        zabih jo
+                        Taruna Makky Satya Nugraha
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        Fullstack Developer on Google Inc, @tarunamsn
                       </p>
                     </div>
                   </div>
@@ -384,12 +348,10 @@
                         <img src="images/client-2.jpg" />
                       </div>
                       <h5>
-                        zabih jo
+                        Yasir Rizqi
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        Sofware Engineer on Microsoft Corp , @rizqiyasir
                       </p>
                     </div>
                   </div>
@@ -407,12 +369,10 @@
                         <img src="images/client-1.jpg" />
                       </div>
                       <h5>
-                        zabih jo
+                        Abdullah Zakaria
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        Backend Developer on Meint Corp , @abzariy
                       </p>
                     </div>
                   </div>
@@ -424,12 +384,10 @@
                         <img src="images/client-2.jpg" />
                       </div>
                       <h5>
-                        zabih jo
+                        Taruna Makky Satya Nugraha
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        Fullstack Developer on Google Inc , @tarunamsn
                       </p>
                     </div>
                   </div>
@@ -444,4 +402,32 @@
   </section>
 
   <!-- end client section -->
+
+
+@endsection
+
+@section('js')
+<script>
+  $(document).ready(function() {
+      fetch_book_data(); 
+
+      function fetch_book_data(query = '') {
+        $.ajax({
+          url:"{{ route('search') }}",
+          method:'GET',
+          data:{query:query},
+          dataType:'json',
+          success:function(data){
+              $('tbody').html(data.table_data);
+              $('#total_records').text(data.total_data);
+          }
+        })
+      }
+
+      $(document).on('keyup', '#search', function(){
+        var query = $(this).val();
+        fetch_book_data(query);
+      })
+  });
+</script>
 @endsection

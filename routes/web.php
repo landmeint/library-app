@@ -28,10 +28,13 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)->group(function() {
     Route::get('login', 'index')->name('login');
     Route::post('login/loading', 'loading')->name('loading');
+    Route::get('register', 'regispage')->name('regispage');
+    Route::post('register/loading', 'register')->name('register');
     Route::get('logout', 'logout')->name('logout');
 });
 
 Route::get('/', [HomeController::class,'index'])->middleware('auth')->name('home');
+Route::get('search', [HomeController::class,'search'])->middleware('auth')->name('search');
 Route::get('catalog', [HomeController::class,'catalog'])->middleware('auth')->name('catalog');
 Route::get('about', [HomeController::class,'about'])->middleware('auth')->name('about');
 

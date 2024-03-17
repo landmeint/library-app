@@ -17,41 +17,34 @@
 					<i id="lock-icon" class="material-icons">lock</i>
 				</div>
 				<div id="card-heading">
-					Login
+					Register
 				</div>
-                <form action="{{ url('login/loading') }}" method="post">
+                <form action="{{ url('register/loading') }}" method="post">
                     @csrf
+                    <input type="hidden" class="mdl-textfield__input" name="level" value="2" />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input type="text" class="mdl-textfield__input 
-                        @error('username')
-                            is-invalid
-                        @enderror" id="username" name="username" autofocus/>
-                        <label class="mdl-textfield__label" for="username">Username</label>
-                        @error('username')
-                        <script>
-                            alert({{ $message }});
-                        </script>
-                        @enderror
+                        <input type="text" class="mdl-textfield__input" id="name" name="name" autofocus/>
+                        <label class="mdl-textfield__label" for="name">Nama Lengkap</label>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input type="password" class="mdl-textfield__input 
-                        @error('password')
-                            is-invalid
-                        @enderror" id="password" name="password"/>
+                        <input type="text" class="mdl-textfield__input" id="username" name="username"/>
+                        <label class="mdl-textfield__label" for="username">Username</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input type="email" class="mdl-textfield__input" id="email" name="email"/>
+                        <label class="mdl-textfield__label" for="email">Email</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input type="password" class="mdl-textfield__input" id="password" name="password"/>
                         <label class="mdl-textfield__label" for="password">Password</label>
-                        @error('password')
-                        <script>
-                            alert({{ $message }});
-                        </script>
-                        @enderror
                     </div>
                     <button id="login-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
-                            Login
+                            Register
                         </button>
                 </form>
             </div>
             <div class="mdl-card__actions">
-            	<a href="{{ url('register') }}" class="mdl-button mdl-js-button mdl-button--primary">Register</a>
+            	<a href="{{ url('login') }}" class="mdl-button mdl-js-button mdl-button--primary">Login</a>
             </div>
         </div>
 	</div>
