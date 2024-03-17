@@ -9,4 +9,8 @@ class BorrowController extends Controller
     public function index() {
         return view('borrow.index');
     }
+
+    public function create() {
+        return view('borrow.create.create');
+    }
 }

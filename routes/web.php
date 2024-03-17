@@ -36,6 +36,7 @@ Route::get('catalog', [HomeController::class,'catalog'])->middleware('auth')->na
 Route::get('about', [HomeController::class,'about'])->middleware('auth')->name('about');
 
 Route::get('borrow', [BorrowController::class,'index'])->middleware('auth')->name('borrow');
+Route::get('borrow/create', [BorrowController::class,'create'])->middleware('auth')->name('borrow_create');
 
 Route::get('book', [BookController::class,'index'])->middleware('auth')->name('book');
 

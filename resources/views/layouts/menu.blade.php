@@ -9,6 +9,8 @@
     <a href="{{ url('book') }}">Manajemen Buku</a>
     <a href="{{ url('category') }}">Manajemen Katogori</a>
 
+    <a href="{{ url('borrow/create') }}" hidden>Peminjaman</a>
+
 @elseif (Auth::user()->level == 2)
 
     <a href="/">Beranda</a>

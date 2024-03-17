@@ -23,7 +23,7 @@ class BookFactory extends Factory
             'publisher' => fake()->company(),
             'publication' => fake()->date(),
             'stock' => mt_rand(1,5),
-            'category_id' => mt_rand(1,5)
+            'category_id' => mt_rand(1,3)
         ];
     }
 }
