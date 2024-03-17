@@ -15,43 +15,62 @@ class BorrowController extends Controller
     }
 
     public function create() {
-        return view('borrow.create.create');
+        return view('borrow.create.create', [
+            'books' => Book::all(),
+            'users' => User::all()
+        ]);
     }
     public function store(Request $request){
-        $officer = Auth::user();
-        $user = User::where('email', $request->input('email_pengguna'))->pluck('id')->first();
-        $book = Book::where('id', $request->input('id_buku'))->pluck('id')->first();
-        $borrow = Borrow::create([
-            'officer_name' => $officer,
-            'total' => $request->total,
-            'start_date' => $request->tanggal_pinjam,
-            'back_date' => $request->tanggal_balik,
-            'user_id' => $user,
-            'book_id' => $book
+        $request->validate([
+            'officer_name' => 'required',
+            'total' => 'required',
+            'tanggal_pinjam' => 'required',
+            'tanggal_balik' => 'required',
+            'user_id' => 'required',
+            'book_id' => 'required'
         ]);
-        return redirect("/borrow");
+ 
+        Borrow::create([
+    		'officer_name' => $request['officer_name'],
+            'total' => $request['total'],
+            'start_date' => $request['tanggal_pinjam'],
+            'back_date' => $request['tanggal_balik'],
+            'user_id' => $request['user_id'],
+            'book_id' => $request['book_id']
+    	]);
+ 
+    	return redirect('borrow');
     }
     public function edit(string $id)
     {
         $borrowID = Borrow::findorFail($id);
-        return view('borrow.edit',['borrowID'=>$borrowID]);
+        return view('borrow.edit',[
+            'borrowID'=>$borrowID,
+            'users' => User::all(),
+            'books' => Book::all(),
+        ]);
     }
     
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $borrowID = Borrow::findorFail($id);
-        $officer = Auth::user();
-        $user = User::where('email', $request->input('email_pengguna'))->pluck('id')->first();
-        $book = Book::where('id', $request->input('id_buku'))->pluck('id')->first();
-        $borrowID->update([
-            'officer_name' => $officer,
-            'total' => $request->total,
-            'start_date' => $request->tanggal_pinjam,
-            'back_date' => $request->tanggal_balik,
-            'user_id' => $user,
-            'book_id' => $book
-        ]);
-        return redirect("/borrow");
+        $request->validate([
+            'officer_name' => 'required',
+            'total' => 'required',
+            'tanggal_pinjam' => 'required',
+            'tanggal_balik' => 'required',
+            'user_id' => 'required',
+            'book_id' => 'required'
+        ]);;
+
+        $book = Borrow::find($id);
+        $book-> officer_name = $request['officer_name'];
+        $book-> total = $request['total'];
+        $book-> start_date = $request['tanggal_pinjam'];
+        $book-> back_date = $request['tanggal_balik'];
+        $book-> user_id = $request['user_id'];
+        $book-> book_id = $request['book_id'];
+        $book-> update();
+        return redirect('borrow');
     }
     public function destroy($id)
     {

@@ -50,7 +50,7 @@
 @section('body-content')
   <!-- book section -->
 
-  <div class="container">
+  <div class="container mb-3">
     <div class="py-5 text-center">
       <h2>Edit Buku</h2>
     </div>

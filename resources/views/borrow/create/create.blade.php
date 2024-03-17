@@ -50,7 +50,7 @@
 @section('body-content')
   <!-- borrow section -->
 
-  <div class="container">
+  <div class="container mb-3">
     <div class="py-5 text-center">
       <h2>Tambah Peminjaman</h2>
     </div>
@@ -59,6 +59,15 @@
         <div class="col-md-8">
           <form class="needs-validation" action="{{Route('borrow_store')}}" novalidate method="POST" >
             @csrf
+
+            <div class="mb-3">
+              <label for="officer">Petugas</label>
+              <input type="text" name="officer_name" class="form-control" id="officer" placeholder="Masukkan Nama Petugas">
+              <div class="invalid-feedback">
+                Tolong Masukkan Nama Petugas
+              </div>
+            </div>
+
             <div class="mb-3">
               <label for="jumlah_buku">Jumlah Buku</label>
               <input type="number" name="total" class="form-control" id="jumlah_buku" placeholder="Masukkan Jumlah Buku">
@@ -85,18 +94,28 @@
     
             <div class="mb-3">
               <label for="peminjam">Peminjam</label>
-              <input type="text" name="email_pengguna" class="form-control" id="peminjam" value="" placeholder="Berdasarkan email" >
-                <div class="invalid-feedback">
-                  Pilih Peminjam
-                </div>
+              <select id="peminjam" class="form-control" name="user_id">
+                <option selected>Pilih...</option>
+                @foreach ($users as $user)
+                  <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+              </select>
+              <div class="invalid-feedback">
+                Tolong Masukkan Nama Peminjam
+              </div>
             </div>
   
             <div class="mb-3">
               <label for="buku">Buku</label>
-              <input type="number" name="id_buku" class="form-control" >
-                <div class="invalid-feedback">
-                  Pilih buku
-                </div>
+              <select id="buku" class="form-control" name="book_id">
+                <option selected>Pilih...</option>
+                @foreach ($books as $bk)
+                  <option value="{{ $bk->id }}">{{ $bk->title }}</option>
+                @endforeach
+              </select>
+              <div class="invalid-feedback">
+                Tolong Masukkan Judul Buku
+              </div>
             </div>
       
             <hr class="mb-4">

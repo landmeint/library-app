@@ -49,7 +49,7 @@
 
 @section('body-content')
   <!-- borrow section -->
-
+<div class="container mt-3 mb-3">
   @if (Auth::user()->level == 1)
 
   <a class="btn btn-primary" href="{{route('borrow_create')}}" role="button">Add Cast</a>
@@ -88,7 +88,7 @@
   
   </tbody>
 </table>
-
+</div>
   <!-- end about section -->
 @endsection
 
