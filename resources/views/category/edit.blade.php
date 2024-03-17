@@ -48,65 +48,34 @@
 @endsection
 
 @section('body-content')
-  <!-- borrow section -->
+  <!-- book section -->
 
   <div class="container">
     <div class="py-5 text-center">
-      <h2>Tambah Peminjaman</h2>
+      <h2>Edit Kategori</h2>
     </div>
   
       <div class="row justify-content-center ">
         <div class="col-md-8">
-          <form class="needs-validation" action="{{Route('borrow_store')}}" novalidate method="POST" >
+          <form class="needs-validation" action="{{ route('category_update', ['id' => $book->id]) }}" novalidate method="POST" >
             @csrf
+            @method('PUT')
             <div class="mb-3">
-              <label for="jumlah_buku">Jumlah Buku</label>
-              <input type="number" name="total" class="form-control" id="jumlah_buku" placeholder="Masukkan Jumlah Buku">
-              <div class="invalid-feedback">
-                Tolong Masukkan Jumlah Buku
-              </div>
-            </div>
-    
-            <div class="mb-3">
-              <label for="date">Tanggal Pinjam</label>
-              <input type="date" name="tanggal_pinjam" class="form-control" id="date">
-              <div class="invalid-feedback">
-                Tolong Set Tanggal Pinjam
-              </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="date">Tanggal Kembali</label>
-              <input type="date" name="tanggal_balik" class="form-control" id="date">
-              <div class="invalid-feedback">
-                Tolong Set Tanggal Kembali
-              </div>
-            </div>
-    
-            <div class="mb-3">
-              <label for="peminjam">Peminjam</label>
-              <input type="text" name="email_pengguna" class="form-control" id="peminjam" value="" placeholder="Berdasarkan email" >
+                <label for="penerbit_buku">Penerbit</label>
+                <input type="text" name="publisher" class="form-control" id="penerbit_buku" placeholder="Masukkan Nama Penerbit Buku" value="{{$category->name}}">
                 <div class="invalid-feedback">
-                  Pilih Peminjam
-                </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="buku">Buku</label>
-              <input type="number" name="id_buku" class="form-control" >
-                <div class="invalid-feedback">
-                  Pilih buku
+                    Tolong Masukkan Kategori Buku
                 </div>
             </div>
       
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Simpan</button>
           </form>
         </div>
         
       </div>
   </div>
 
-  <!-- end about section -->
+  <!-- end category section -->
 @endsection
 

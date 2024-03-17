@@ -52,55 +52,23 @@
 
   <div class="container">
     <div class="py-5 text-center">
-      <h2>Tambah Peminjaman</h2>
+      <h2>Tambah Kategori Buku</h2>
     </div>
   
       <div class="row justify-content-center ">
         <div class="col-md-8">
-          <form class="needs-validation" action="{{Route('borrow_store')}}" novalidate method="POST" >
+          <form class="needs-validation" action="{{Route('category_store')}}" novalidate method="POST" >
             @csrf
             <div class="mb-3">
-              <label for="jumlah_buku">Jumlah Buku</label>
-              <input type="number" name="total" class="form-control" id="jumlah_buku" placeholder="Masukkan Jumlah Buku">
+              <label for="nama_kategori">Nama Kategori</label>
+              <input type="text" name="name" class="form-control" id="nama_kategori" placeholder="Masukkan Kategori Buku">
               <div class="invalid-feedback">
-                Tolong Masukkan Jumlah Buku
+                Tolong Masukkan Kategori Buku
               </div>
             </div>
-    
-            <div class="mb-3">
-              <label for="date">Tanggal Pinjam</label>
-              <input type="date" name="tanggal_pinjam" class="form-control" id="date">
-              <div class="invalid-feedback">
-                Tolong Set Tanggal Pinjam
-              </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="date">Tanggal Kembali</label>
-              <input type="date" name="tanggal_balik" class="form-control" id="date">
-              <div class="invalid-feedback">
-                Tolong Set Tanggal Kembali
-              </div>
-            </div>
-    
-            <div class="mb-3">
-              <label for="peminjam">Peminjam</label>
-              <input type="text" name="email_pengguna" class="form-control" id="peminjam" value="" placeholder="Berdasarkan email" >
-                <div class="invalid-feedback">
-                  Pilih Peminjam
-                </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="buku">Buku</label>
-              <input type="number" name="id_buku" class="form-control" >
-                <div class="invalid-feedback">
-                  Pilih buku
-                </div>
-            </div>
-      
+     
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Simpan</button>
           </form>
         </div>
         

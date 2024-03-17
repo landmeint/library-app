@@ -47,36 +47,49 @@
   </div>
 
 @section('body-content')
-  <!-- borrow section -->
+  <!-- book section -->
 
-  <section class="about_section layout_padding">
-    <div class="row">
-      <div class="col-md-5 offset-md-1">
-        <div class="img-box">
-          <img src="images/about.png" alt="" />
-          <div class="play_btn-box">
-            <div class="play-btn"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="detail-box">
-          <h3>
-            About Us
-          </h3>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The
-            point of using LoremIt is a long established fact that a reader
-            will be distracted by the readable content of a page when looking
-            at its layout. The point of using LoremIt is a long established
-            fact that a reader will be distracted by the readable content of a
-            page when looking at its layout. The point of using Lorem
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  @if (Auth::user()->level == 1)
+
+  <a class="btn btn-primary" href="{{route('book_create')}}" role="button">Add New Book Titles</a>
+  @endif
+
+
+<table class="table" style="margin: 30px 20px 50px 30px">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Judul</th>
+      <th scope="col">Penulis</th>
+      <th scope="col">Penerbit</th>
+      <th scope="col">Tanggal Terbit</th>
+      <th scope="col">Stok</th>
+      <th scope="col">Kategori</th>
+  </thead>
+  <tbody>
+    @foreach ($books as $item)
+    <tr>
+        <th scope="row">{{$loop->index +1 }}</th>
+        <td>{{$item->title}}</td>
+        <td>{{$item->writer}}</td>
+        <td>{{$item->publisher}}</td>
+        <td>{{$item->publication}}</td>
+        <td>{{$item->stock}}</td>
+        <td>{{$item->category_id}}</td>
+        <td>
+            <form action="/book/{{$item->id}}" method="POST">
+                @csrf
+                <a class="btn btn-primary" href="{{ route('book_edit', ['id' => $item->id]) }}" role="button">Edit</a>
+                @method('DELETE')
+                <button class="btn btn-primary" type="submit">Delete</button>
+            </form>
+        </td>
+      
+    </tr>
+    @endforeach
+  
+  </tbody>
+</table>
 
   <!-- end about section -->
 @endsection

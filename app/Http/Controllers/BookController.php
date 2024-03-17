@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
     public function index() {
         $book = Book::all();
-        return view('book.index', ['book' => $book]);
+        return view('book.index', ['books' => $book]);
     }
 
     public function create()
     {
         $book = Book::get();
-        return view('book.create', ['book' => $book]);
+        return view('book.create.create', ['books' => $book]);
     }
  
     public function store(Request $request)
@@ -26,7 +28,7 @@ class BookController extends Controller
             'publisher' => 'required',
             'publication' => 'required',
             'stock' => 'required',
-            'categories_id' => 'required'
+            'category_id' => 'required'
     	]);
  
         Book::create([
@@ -35,22 +37,16 @@ class BookController extends Controller
             'publisher' => $request['publisher'],
             'publication' => $request['publication'],
             'stock' => $request['stock'],
-            'categories_id' => $request['categories_id']
+            'category_id' => $request['category_id']
     	]);
  
     	return redirect('/book');
     }
 
-    public function show($id)
-    {
-        $book = Book::find($id);
-        return view('book.show', ['book' => $book]);
-    }
-
     public function edit($id)
     {
         $book = Book::find($id);
-        return view('book.edit', ['book' => $book]);
+        return view('book.edit', ['books' => $book]);
     }
 
     public function update($id, Request $request)
@@ -61,7 +57,7 @@ class BookController extends Controller
             'publisher' => 'required',
             'publication' => 'required',
             'stock' => 'required',
-            'categories_id' => 'required'
+            'category_id' => 'required'
         ]);
 
         $book = Book::find($id);
@@ -70,7 +66,7 @@ class BookController extends Controller
         $book-> publisher = $request['publisher'];
         $book-> publication = $request['publication'];
         $book-> stock = $request['stock'];
-        $book-> categories_id = $request['categories_id'];
+        $book-> category_id = $request['category_id'];
         $book-> update();
         return redirect('/book');
     }

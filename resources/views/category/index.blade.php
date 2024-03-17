@@ -47,37 +47,40 @@
   </div>
 
 @section('body-content')
-  <!-- borrow section -->
+  <!-- category section -->
 
-  <section class="about_section layout_padding">
-    <div class="row">
-      <div class="col-md-5 offset-md-1">
-        <div class="img-box">
-          <img src="images/about.png" alt="" />
-          <div class="play_btn-box">
-            <div class="play-btn"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="detail-box">
-          <h3>
-            About Us
-          </h3>
-          <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The
-            point of using LoremIt is a long established fact that a reader
-            will be distracted by the readable content of a page when looking
-            at its layout. The point of using LoremIt is a long established
-            fact that a reader will be distracted by the readable content of a
-            page when looking at its layout. The point of using Lorem
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+  @if (Auth::user()->level == 1)
 
-  <!-- end about section -->
+  <a class="btn btn-primary" href="{{route('category_create')}}" role="button">Add New Category</a>
+  @endif
+
+
+<table class="table" style="margin: 30px 20px 50px 30px">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Kategori Buku</th>
+  </thead>
+  <tbody>
+    @foreach ($categories as $item)
+    <tr>
+        <th scope="row">{{$loop->index +1 }}</th>
+        <td>{{$item->name}}</td>
+        <td>
+            <form action="/category/{{$item->id}}" method="POST">
+                @csrf
+                <a class="btn btn-primary" href="{{ route('category_edit', ['id' => $item->id]) }}" role="button">Edit</a>
+                @method('DELETE')
+                <button class="btn btn-primary" type="submit">Delete</button>
+            </form>
+        </td>
+      
+    </tr>
+    @endforeach
+  
+  </tbody>
+</table>
+
+  <!-- end category section -->
 @endsection
 

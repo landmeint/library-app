@@ -52,55 +52,63 @@
 
   <div class="container">
     <div class="py-5 text-center">
-      <h2>Tambah Peminjaman</h2>
+      <h2>Tambah Buku</h2>
     </div>
   
       <div class="row justify-content-center ">
         <div class="col-md-8">
-          <form class="needs-validation" action="{{Route('borrow_store')}}" novalidate method="POST" >
+          <form action="/posts" class="needs-validation" action="{{Route('book_store')}}" novalidate method="POST" >
             @csrf
             <div class="mb-3">
-              <label for="jumlah_buku">Jumlah Buku</label>
-              <input type="number" name="total" class="form-control" id="jumlah_buku" placeholder="Masukkan Jumlah Buku">
+              <label for="judul_buku">Judul Buku</label>
+              <input type="text" name="title" class="form-control" id="judul_buku" placeholder="Masukkan Judul Buku">
               <div class="invalid-feedback">
-                Tolong Masukkan Jumlah Buku
+                Tolong Masukkan Judul Buku
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="penulis_buku">Penulis</label>
+              <input type="text" name="writer" class="form-control" id="penulis_buku" placeholder="Masukkan Nama Penulis Buku">
+              <div class="invalid-feedback">
+                Tolong Masukkan Penulis Buku
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="penerbit_buku">Penerbit</label>
+              <input type="text" name="publisher" class="form-control" id="penerbit_buku" placeholder="Masukkan Nama Penerbit Buku">
+              <div class="invalid-feedback">
+                Tolong Masukkan Penerbit Buku
               </div>
             </div>
     
             <div class="mb-3">
-              <label for="date">Tanggal Pinjam</label>
-              <input type="date" name="tanggal_pinjam" class="form-control" id="date">
+              <label for="publication_date">Tanggal Terbit</label>
+              <input type="date" name="publication" class="form-control" id="publication_date">
               <div class="invalid-feedback">
-                Tolong Set Tanggal Pinjam
+                Tolong Cantumkan Tanggal Terbit
               </div>
             </div>
   
             <div class="mb-3">
-              <label for="date">Tanggal Kembali</label>
-              <input type="date" name="tanggal_balik" class="form-control" id="date">
+              <label for="jumlah_stok">Jumlah Stok yang Ada</label>
+              <input type="number" name="stock" class="form-control" id="jumlah_stok" placeholder="Masukkan Jumlah Stok">
               <div class="invalid-feedback">
-                Tolong Set Tanggal Kembali
+                Tolong Masukkan Jumlah Stok Buku yang tersedia dalam inventori
               </div>
             </div>
-    
+
             <div class="mb-3">
-              <label for="peminjam">Peminjam</label>
-              <input type="text" name="email_pengguna" class="form-control" id="peminjam" value="" placeholder="Berdasarkan email" >
-                <div class="invalid-feedback">
-                  Pilih Peminjam
-                </div>
-            </div>
-  
-            <div class="mb-3">
-              <label for="buku">Buku</label>
-              <input type="number" name="id_buku" class="form-control" >
-                <div class="invalid-feedback">
-                  Pilih buku
-                </div>
+              <label for="category">Kategori</label>
+              <input type="number" name="categories_id" class="form-control" id="category" placeholder="Masukkan Kategori">
+              <div class="invalid-feedback">
+                Tolong Masukkan Kategori Buku
+              </div>
             </div>
       
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Simpan</button>
           </form>
         </div>
         
